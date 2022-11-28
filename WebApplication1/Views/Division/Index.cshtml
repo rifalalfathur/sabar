@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebApp.Models.Division>
+
+@{
+    Layout = "_AdmiinLayout";
+    ViewData["Title"] = "Index";
+}
+<div class="card">
+
+    <h1>Index</h1>
+    <button type="button" class="btn btn-light" id="btnCreateDivision" data-bs-toggle="modal" data-bs-target="#addModalDivision"><b>CREATE</b></button>
+
+    <table class="table" id="tableDivision">
+        <thead>
+            <tr>
+
+                <th>Id</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+     <div class="modal fade" id="detailModalDivision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="detailData">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Add-->
+    <div class="modal fade" id="addModalDivision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="addData">
+                    <form class="cmxform" id="commentForm" method="get" action="">
+                        <div class="form-group">
+                            
+                            <fieldset>
+                                <label for="formGroupExampleInput">Name</label>
+                                <input type="text" value="" minlength="2" class="form-control" id="addNameDivision" required/>
+                            </fieldset>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="addDivision()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Modal Edit-->
+    <div class="modal fade" id="editDivision" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="editData">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

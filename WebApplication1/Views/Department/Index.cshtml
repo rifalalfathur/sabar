@@ -1,0 +1,122 @@
+﻿@model IEnumerable<WebApp.Models.Department>
+
+@{
+    Layout = "_AdmiinLayout";
+    ViewData["Title"] = "Index";
+}
+<div class="card">
+
+    <h1>Index</h1>
+    <button type="button" class="btn btn-light" id="btnCreateDepartment" data-bs-toggle="modal" data-bs-target="#addModalDepartment"><b>CREATE</b></button>
+
+    <table class="table" id="tableDepartment">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Division Id</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Pie Chart Department by Choose DivionId</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="stat-chart">
+                        </div>
+                    </div>
+
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">...CHART</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="next-chart">
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+
+            </div>
+
+     <div class="modal fade" id="detailModalDepartment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="detailData">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Add-->
+    <div class="modal fade" id="addModalDepartment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="addData">
+                    <form>
+                        <div class="form-group">
+
+                            <label for="formGroupExampleInput">Name</label>
+                            <input type="text" value="" class="form-control" id="addNameDepartment"/>
+                            <label for="formGroupExampleInput2">Division ID</label>
+                            <input type="text" value="" class="form-control" id="addDivisionId" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="addDepartment()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Modal Edit-->
+    <div class="modal fade" id="editDepartment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="editData">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
